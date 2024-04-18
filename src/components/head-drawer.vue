@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-3 mb-5">
     <svg
       class="cursor-pointer opacity-40 hover:opacity-100 transition hover:-translate-x-1"
       width="35px"
@@ -16,6 +16,6 @@
         stroke-linejoin="round"
       />
     </svg>
-    <h2 class="text-3xl font-bold">Busket</h2>
+    <h2 class="text-2xl font-bold">Cart</h2>
   </div>
 </template>
