@@ -9,13 +9,16 @@ import CartItemsList from './cart-items-list.vue'
     <CartItemsList />
 
     <div>
-      <div class="flex gap-2 mb-6">
+      <div class="flex gap-2 mb-6 my-5">
         <span>Total:</span>
         <div class="flex-1 border-b border-dashed"></div>
         <b>300 $</b>
       </div>
 
-      <button class="bg-teal-200 rounded-xl w-full py-2 hover:bg-teal-500 active:bg-teal-600">
+      <button
+        disabled="true"
+        class="bg-teal-200 rounded-xl w-full py-2 hover:bg-teal-500 active:bg-teal-600 cursor-pointer disabled:bg-slate-400"
+      >
         Checkout
       </button>
     </div>
