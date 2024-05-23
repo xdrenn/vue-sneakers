@@ -16,7 +16,7 @@
 
       <li class="flex items-center gap-5 text-gray-500 hover:text-black cursor-pointer">
         <img src="/heart.svg" alt="favourites" />
-        <span>Favourites</span>
+        <span>Favorites</span>
       </li>
 
       <li class="flex items-center gap-5 text-gray-500 hover:text-black cursor-pointer">
