@@ -1,10 +1,25 @@
 <script setup>
 import Header from './components/shop-header.vue'
 import CardList from './components/card-list.vue'
-import { onMounted, ref, watch, reactive, provide } from 'vue'
+import { onMounted, ref, watch, reactive, provide, computed } from 'vue'
 import axios from 'axios'
+import Cart from './components/cart-drawer.vue'
 
 const items = ref([])
+
+const cart = ref([])
+
+const totalPrice = computed(() => cart.value.reduce((acc, item) => acc + item.price, 0))
+
+const cartOpened = ref([false])
+
+const closeCart = () => {
+  cartOpened.value = false
+}
+
+const openCart = () => {
+  cartOpened.value = true
+}
 
 const filters = reactive({
   sortBy: 'name',
@@ -17,6 +32,24 @@ const onChangeSelect = (event) => {
 
 const onChangeSearchInput = (event) => {
   filters.searchQuery = event.target.value
+}
+
+const addToCart = (item) => {
+  cart.value.push(item)
+  item.isAdded = true
+}
+
+const removeFromCart = (item) => {
+  cart.value.splice(cart.value.indexOf(item), 1)
+  item.isAdded = false
+}
+
+const onClickAdd = (item) => {
+  if (!item.isAdded) {
+    addToCart(item)
+  } else {
+    removeFromCart(item)
+  }
 }
 
 const fetchFavorites = async () => {
@@ -89,13 +122,13 @@ onMounted(async () => {
 })
 watch(filters, fetchItems)
 
-provide('addToFavorites', addToFavorites)
+provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
 </script>
 
 <template>
-  <!-- <Drawer /> -->
+  <Cart v-if="cartOpened" />
   <div class="bg-white w-4/5 m-auto rounded-xl shadow-xl mt-14">
-    <Header />
+    <Header :total-price="totalPrice" @open-cart="openCart" />
 
     <div class="p-8">
       <div class="flex justify-between">
@@ -121,7 +154,7 @@ provide('addToFavorites', addToFavorites)
           </div>
         </div>
       </div>
-      <CardList :items="items" @addToFavorites="addToFavorites" />
+      <CardList :items="items" @add-to-favorites="addToFavorites" @add-to-cart="onClickAdd" />
     </div>
   </div>
 </template>

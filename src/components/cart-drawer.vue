@@ -1,5 +1,5 @@
 <script setup>
-import HeadDrawer from './head-drawer.vue'
+import HeadDrawer from './cart-header.vue'
 import CartItemsList from './cart-items-list.vue'
 </script>
 <template>
