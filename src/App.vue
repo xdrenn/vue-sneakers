@@ -11,7 +11,13 @@ const cart = ref([])
 
 const totalPrice = computed(() => cart.value.reduce((acc, item) => acc + item.price, 0))
 
-const cartOpened = ref([false])
+const cartOpened = ref(false)
+
+const isCreatingOrder = ref(false)
+
+const cartIsEmpty = computed(() => cart.value.length === 0)
+
+const cartButtonDisabled = computed(() => isCreatingOrder.value || cartIsEmpty)
 
 const closeCart = () => {
   cartOpened.value = false
@@ -32,6 +38,23 @@ const onChangeSelect = (event) => {
 
 const onChangeSearchInput = (event) => {
   filters.searchQuery = event.target.value
+}
+
+const createOrder = async () => {
+  try {
+    isCreatingOrder.value = true
+    const { data } = await axios.post(`https://backend-sneakers.onrender.com/cart/add`, {
+      items: cart.value,
+      totalPrice: totalPrice.value
+    })
+    cart.value = []
+
+    return data
+  } catch (err) {
+    console.log(err)
+  } finally {
+    isCreatingOrder.value = false
+  }
 }
 
 const addToCart = (item) => {
@@ -122,11 +145,23 @@ onMounted(async () => {
 })
 watch(filters, fetchItems)
 
+watch(cart, () => {
+  items.value = items.value.map((item) => ({
+    ...item,
+    isAdded: false
+  }))
+})
+
 provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
 </script>
 
 <template>
-  <Cart v-if="cartOpened" />
+  <Cart
+    v-if="cartOpened"
+    :total-price="totalPrice"
+    @create-order="createOrder"
+    :disabledButton="cartButtonDisabled"
+  />
   <div class="bg-white w-4/5 m-auto rounded-xl shadow-xl mt-14">
     <Header :total-price="totalPrice" @open-cart="openCart" />
 
