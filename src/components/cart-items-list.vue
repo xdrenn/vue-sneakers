@@ -5,7 +5,7 @@ import CartItem from './cart-item.vue'
 const { cart, removeFromCart } = inject('cart')
 </script>
 <template>
-  <div class="grid grid-col gap-4">
+  <div class="grid grid-col gap-4" v-auto-animate>
     <CartItem
       v-for="item in cart"
       :key="item.id"

@@ -30,7 +30,7 @@ defineProps({
         <div class="flex gap-2">
           <span>Total:</span>
           <div class="flex-1 border-b border-dashed"></div>
-          <b>{{ totalPrice }}</b>
+          <b>{{ totalPrice }}$</b>
         </div>
 
         <button
