@@ -7,7 +7,7 @@ const emit = defineEmits(['createOrder'])
 
 defineProps({
   totalPrice: Number,
-  disabledButton: Boolean
+  isCreatingOrder: Boolean
 })
 </script>
 
@@ -35,7 +35,6 @@ defineProps({
 
         <button
           @click="() => emit('createOrder')"
-          :disabled="disabledButton"
           class="bg-teal-200 rounded-xl w-full py-2 hover:bg-teal-500 active:bg-teal-600 cursor-pointer disabled:bg-slate-400"
         >
           Checkout

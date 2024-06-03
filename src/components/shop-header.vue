@@ -7,13 +7,15 @@ const emit = defineEmits(['openCart'])
 
 <template>
   <header class="flex justify-between border-b border-slate-300 py-8 px-10">
-    <div class="flex items-center gap-5">
-      <img src="/sneaker-logo.jpg" alt="logo" width="85" height="45" />
-      <div>
-        <h1 class="text-xl font-bold">SNEAKERS SHOP</h1>
-        <p class="text-gray-500">Vintage sneakers shop</p>
-      </div>
-    </div>
+    <router-link to="/">
+      <div class="flex items-center gap-5">
+        <img src="/sneaker-logo.jpg" alt="logo" width="85" height="45" />
+        <div>
+          <h1 class="text-xl font-bold">SNEAKERS SHOP</h1>
+          <p class="text-gray-500">Vintage sneakers shop</p>
+        </div>
+      </div></router-link
+    >
 
     <ul class="flex items-center gap-10">
       <li
@@ -24,10 +26,12 @@ const emit = defineEmits(['openCart'])
         <b>{{ totalPrice }} $</b>
       </li>
 
-      <li class="flex items-center gap-5 text-gray-500 hover:text-black cursor-pointer">
-        <img src="/heart.svg" alt="favourites" />
-        <span>Favorites</span>
-      </li>
+      <router-link to="/favorites">
+        <li class="flex items-center gap-5 text-gray-500 hover:text-black cursor-pointer">
+          <img src="/heart.svg" alt="favourites" />
+          <span>Favorites</span>
+        </li>
+      </router-link>
 
       <li class="flex items-center gap-5 text-gray-500 hover:text-black cursor-pointer">
         <img src="/profile.svg" alt="profile" />
