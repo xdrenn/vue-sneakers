@@ -9,7 +9,6 @@ onMounted(async () => {
     const { data } = await axios.get(`https://backend-sneakers.onrender.com/favorites`)
 
     favorites.value = data.map((obj) => obj.parentId)
-    console.log(data)
   } catch (err) {
     console.log(err)
   }
@@ -17,7 +16,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>Favorites</h1>
+  <h1 class="text-3xl font-bold">Favorites</h1>
 
-  <CardList :items="favorites" is-favorites />
+  <CardList :items="favorites" is-favorite />
 </template>

@@ -34,7 +34,7 @@ const fetchFavorites = async () => {
     const { data: favorites } = await axios.get('https://backend-sneakers.onrender.com/favorites')
 
     items.value = items.value.map((item) => {
-      const favorite = favorites.find((favorites) => favorites.parentId === item._id)
+      const favorite = favorites.find((favorites) => favorites.parentId._id === item._id)
 
       if (!favorite) {
         return item

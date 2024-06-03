@@ -16,6 +16,7 @@ defineProps({
     class="relative m-10 border border-slate-100 rounded-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl"
   >
     <img
+      v-if="onClickFavorite"
       @click="onClickFavorite"
       class="absolute top-8 left-8"
       height="20"
@@ -32,6 +33,7 @@ defineProps({
       </div>
 
       <img
+        v-if="onClickAdd"
         @click="onClickAdd"
         height="10"
         width="20"

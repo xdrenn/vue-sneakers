@@ -3,7 +3,7 @@ import Card from './shoes-card.vue'
 
 defineProps({
   items: Array,
-  isFavorites: Boolean
+  isFavorite: Boolean
 })
 
 const emit = defineEmits(['addToFavorites', 'addToCart'])
@@ -20,8 +20,8 @@ const emit = defineEmits(['addToFavorites', 'addToCart'])
       :price="item.price"
       :isFavorite="item.isFavorite"
       :isAdded="item.isAdded"
-      :onClickFavorite="isFavorites ? null : () => emit('addToFavorites', item)"
-      :onClickAdd="isFavorites ? null : () => emit('addToCart', item)"
+      :onClickFavorite="isFavorite ? null : () => emit('addToFavorites', item)"
+      :onClickAdd="isFavorite ? null : () => emit('addToCart', item)"
     />
   </div>
 </template>
