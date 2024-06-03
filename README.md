@@ -1,35 +1,16 @@
-# vue-sneakers
+# Sneakers shop
+Test sneakers sshop website for training in Vue.js framework, uses [backend](https://github.com/xdrenn/backend-sneakers)
 
-This template should help get you started developing with Vue 3 in Vite.
+# Tech
+- Vue 3
+- Vue Router
+- TailwindCSS
+- Axios
+- @formkit/auto-animate
+- Composition API / Options API
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+# Screenshots
+<img src="screenshots/screenshot-1.PNG" width="1000" height="500"/>
+<img src="screenshots/screenshot-2.PNG" width="1000" height="500"/>
+<img src="screenshots/screenshot-3.PNG" width="1000" height="500"/>
+<img src="screenshots/screenshot-4.PNG" width="1000" height="500"/>
