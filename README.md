@@ -10,7 +10,7 @@ Test sneakers sshop website for training in Vue.js framework, uses [backend](htt
 - Composition API / Options API
 
 # Screenshots
-<img src="screenshots/screenshot-1.PNG" width="1000" height="500"/>
-<img src="screenshots/screenshot-2.PNG" width="1000" height="500"/>
-<img src="screenshots/screenshot-3.PNG" width="1000" height="500"/>
-<img src="screenshots/screenshot-4.PNG" width="1000" height="500"/>
+<img src="screenshots/screenshot-1.PNG" width="1000" height="460"/>
+<img src="screenshots/screenshot-2.PNG" width="1000" height="460"/>
+<img src="screenshots/screenshot-3.PNG" width="1000" height="460"/>
+<img src="screenshots/screenshot-4.PNG" width="1000" height="460"/>
